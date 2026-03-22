@@ -26,6 +26,6 @@ function getDb() {
 export const db = new Proxy({} as ReturnType<typeof getDb>, {
   get(_, prop) {
     const instance = getDb();
-    return (instance as Record<string | symbol, unknown>)[prop];
+    return (instance as unknown as Record<string | symbol, unknown>)[prop];
   },
 });
