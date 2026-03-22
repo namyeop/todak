@@ -1,22 +1,31 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is required.");
-}
-
 const globalForDb = globalThis as typeof globalThis & {
   todakSql?: ReturnType<typeof postgres>;
 };
 
-const sql =
-  globalForDb.todakSql ??
-  postgres(process.env.DATABASE_URL, {
-    prepare: false,
-  });
+function getDb() {
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is required.");
+  }
 
-if (process.env.NODE_ENV !== "production") {
-  globalForDb.todakSql = sql;
+  const sql =
+    globalForDb.todakSql ??
+    postgres(process.env.DATABASE_URL, {
+      prepare: false,
+    });
+
+  if (process.env.NODE_ENV !== "production") {
+    globalForDb.todakSql = sql;
+  }
+
+  return drizzle(sql);
 }
 
-export const db = drizzle(sql);
+export const db = new Proxy({} as ReturnType<typeof getDb>, {
+  get(_, prop) {
+    const instance = getDb();
+    return (instance as Record<string | symbol, unknown>)[prop];
+  },
+});
