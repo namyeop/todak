@@ -1,0 +1,10 @@
+{
+  "name": "토닥",
+  "short_name": "토닥",
+  "description": "자기 전, 너를 토닥여주는 목소리",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": []
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+:root {
+  --bg: #111010;
+  --fg: #d4cdc4;
+  --fg-dim: #6b6560;
+  --fg-muted: #4a4540;
+  --warm: #c8a882;
+  --warm-dim: rgba(200, 168, 130, 0.08);
+  --warm-glow: rgba(200, 168, 130, 0.04);
+  --warm-border: rgba(200, 168, 130, 0.12);
+  --font-serif: 'Noto Serif KR', serif;
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--fg);
+  background: var(--bg);
+  font-family: 'Noto Serif KR', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 168, 130, 0); }
+  50% { box-shadow: 0 0 60px 20px rgba(200, 168, 130, 0.06); }
+}

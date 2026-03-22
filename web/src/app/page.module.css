@@ -1,0 +1,148 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--fg);
+  margin-bottom: 1rem;
+  animation: fade-up 1.2s ease both;
+}
+
+/* D1: 첫 방문 안내 문구 */
+.subtitle {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  animation: fade-up 1.2s ease 0.15s both;
+}
+
+.startButton {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 168, 130, 0.2);
+  background: var(--warm-dim);
+  cursor: pointer;
+  position: relative;
+  animation: fade-up 1.2s ease 0.3s both;
+  transition: border-color 0.6s ease, opacity 0.6s ease;
+}
+
+.startButton::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+.startButton:hover {
+  border-color: rgba(200, 168, 130, 0.5);
+}
+
+.startButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 168, 130, 0.4);
+}
+
+.startButton:active {
+  transform: scale(0.96);
+}
+
+.startButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* D3: 종료 후 버튼 dim */
+.startButtonDim {
+  opacity: 0.3;
+  border-color: rgba(200, 168, 130, 0.1);
+}
+
+.startButtonDim::after {
+  animation: none;
+}
+
+.startLabel {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  margin-top: 1.5rem;
+  letter-spacing: 0.06em;
+  animation: fade-up 1.2s ease 0.5s both;
+}
+
+/* D2: 마이크 권한 거부 안내 */
+.micDenied {
+  max-width: 18rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  animation: fade-up 0.8s ease both;
+}
+
+.micDenied p {
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--fg-dim);
+}
+
+.micDenied p:first-child {
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+
+.ended {
+  max-width: 18rem;
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--fg-dim);
+  animation: fade-up 0.8s ease both;
+}
+
+.error {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #b07070;
+  margin-top: 1rem;
+  font-weight: 300;
+  animation: fade-up 0.6s ease both;
+}
+
+/* D3: 세션 종료 페이드아웃 오브 */
+.orbFadeOut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 168, 130, 0.12);
+  background: var(--warm-glow);
+  animation: orb-fade-out 3s ease-in forwards;
+}
+
+@keyframes orb-fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

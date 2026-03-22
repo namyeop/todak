@@ -1,0 +1,41 @@
+# OS / editor
+.DS_Store
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/coverage/
+web/.pnp
+web/.pnp.*
+web/.yarn/*
+!web/.yarn/patches
+!web/.yarn/plugins
+!web/.yarn/releases
+!web/.yarn/versions
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.pnpm-debug.log*
+web/.vercel
+web/*.tsbuildinfo
+web/next-env.d.ts
+web/.pnpm-store/
+
+# Python
+agent/__pycache__/
+agent/**/*.py[cod]
+agent/build/
+agent/dist/
+agent/wheels/
+agent/*.egg-info
+agent/.venv/
+.gstack/
+.claude/skills/
+.claude/settings.local.json
